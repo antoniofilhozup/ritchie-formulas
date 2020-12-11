@@ -23,4 +23,5 @@ jobs:
           DEFAULT_BRANCH: master
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          echo "$GITHUB_TOKEN !!!!!"
+          curl -fsSL https://horusec.io/bin/install.sh | bash
+          horusec start -p ./ -e "true" -a "$HORUSEC_CLI_REPOSITORY_AUTHORIZATION" -G "true" -u "https://api-horusec.zup.com.br"
