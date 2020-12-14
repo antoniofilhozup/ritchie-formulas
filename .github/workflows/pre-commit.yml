@@ -1,0 +1,26 @@
+name: Pre-Commit
+
+on: push
+
+jobs:
+  horusec:
+    name: Pre-Commit
+    runs-on: ritclizup/pythonwithgo:1.0
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: install Java
+        run: |
+          apt-get update --fix-missing
+          apt-get install -y default-jdk
+
+      - name: install Shellcheck
+        run: |
+          apt-get install -y shellcheck
+      
+      - name: pre-commit
+        run: |
+          pre-commit run --all-files
+
