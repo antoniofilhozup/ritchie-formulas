@@ -1,0 +1,16 @@
+name: Shell-Checker
+
+on: push
+
+jobs:
+  horusec:
+    name: Shell-Checker
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: sh-checker
+        uses: luizm/action-sh-checker@v0.1.9
+      
