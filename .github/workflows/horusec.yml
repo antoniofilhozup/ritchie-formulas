@@ -1,15 +1,12 @@
 name: Horusec          
    
-on: push
-# on:
-#   push:
-#     branches:
-#       - master
-#       - release/*
-#   pull_request:
-#     branches:
-#       - master
-#       - release/*
+# on: push
+on:
+  pull_request:
+    branches:
+      - master
+      - release/*
+      - qa  
 
 jobs:
   horusec:
