@@ -1,6 +1,14 @@
-name: Horusec
-
-on: push
+name: Horusec          
+          
+on:
+  push:
+    branches:
+      - master
+      - release/*
+  pull_request:
+    branches:
+      - master
+      - release/*
 
 jobs:
   horusec:
@@ -13,8 +21,6 @@ jobs:
 
       - name: Run Horusec
         env:
-          DEFAULT_BRANCH: master
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           HORUSEC_CLI_REPOSITORY_AUTHORIZATION: ${{ secrets.HORUSEC_CLI_REPOSITORY_AUTHORIZATION }}
         run: |
           curl -fsSL https://horusec.io/bin/install.sh | bash
